@@ -33,10 +33,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Test code
-        id: fail-test
+        id: fail-tests
         run: npm run test
       - name: Upload test report
-        if: failure() && steps.fail-test.outcome == 'failure'
+        if: failure() && steps.fail-tests.outcome == 'failure'
         uses: actions/upload-artifact@v3
         with:
           name: test-report
